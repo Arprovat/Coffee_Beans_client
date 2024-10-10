@@ -1,4 +1,9 @@
 import React from 'react';
+import swal from 'sweetalert';
+import Navber from '../Navber/Navber';
+import { Link } from 'react-router-dom';
+import { IoMdArrowRoundBack } from "react-icons/io";
+
 
 const AddCoffee = () => {
 
@@ -15,13 +20,25 @@ const AddCoffee = () => {
          .then((res) => res.json())
          .then((data) =>{
             console.log(data);
+            if(data.insertedId){
+                swal({
+                    title: "Good job!",
+                    text: "You clicked the button!",
+                    icon: "success",
+                    button: "Aww yiss!",
+                  });
+            }
             e.target.reset();
          })
     }
     return (
-        <div className='flex justify-center items-center'>
+        <>
+   <Navber></Navber>
+        <div className='mt-4 flex justify-center items-center'>
             <div className="card bg-[#EFECE4] w-full max-w-4xl shrink-0 shadow-2xl">
-            <h1 className='text-3xl font-extrabold text-center'>Add Coffee</h1>
+               <Link className='ml-4 mt-8 absolute  flex justify-center items-center w-12 h-12 rounded-full hover:bg-slate-200 text-xl' to='/'><IoMdArrowRoundBack/></Link>
+               <h1 className='text-4xl mt-8 leading-normal  font-extrabold flex-grow text-center  text-[#331A15]'>Add Coffee</h1>
+             
                 <form onSubmit={handleAddCoffee} className="card-body ">
                     <div className='flex gap-4 '>
                         <div className="form-control md:w-1/2">
@@ -96,6 +113,7 @@ const AddCoffee = () => {
                 </form>
             </div>
         </div>
+        </>
     );
 };
 

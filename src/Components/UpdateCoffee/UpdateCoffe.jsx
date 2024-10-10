@@ -13,7 +13,15 @@ const UpdateCoffe = () => {
     headers:{ 'content-type': 'application/json'},
      body: JSON.stringify(data)
    }).then(response => response.json())
-   .then(data => console.log(data))
+   .then(data => {
+    if(data.modifiedCount){
+        swal({
+            title: "Successfully updated!",
+            icon: "success",
+            button: "ok",
+          });
+    }
+   })
 
     }
     return (
