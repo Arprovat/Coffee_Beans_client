@@ -1,17 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import teamwork from '../../assets/teamwork.svg';
 import singup_bg from '../../assets/signup-background.svg';
 import Navber from '../Navber/Navber';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, } from 'react-router-dom';
+import { AuthContext } from '../Auth/AuthCenter';
 
 
 const Login = () => {
+  const {loginUser} = useContext(AuthContext)
+  const navigate = useNavigate();
     const handleSubmit =(e)=>{
         e.preventDefault();
 
         const form =new FormData(e.target)
         const formData = Object.fromEntries(form.entries());
-        console.log(formData);
+        
+        loginUser(formData.email, formData.password)
+        .then(res =>{
+         
+          navigate('/');
+          e.target.reset();
+         
+        })
+        .catch(err=>console.log(err));
     }
   return (
     <div>

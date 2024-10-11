@@ -1,14 +1,24 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Auth/AuthCenter";
 
 const Navber = () => {
-
+ const {Users,logoutUser,setUsers} = useContext(AuthContext);
+ 
     const navlinks= <>
         <li><Link to='/add_coffee'>Add Coffee</Link></li>
         <li><NavLink to='/about' >About</NavLink></li>
         <li><NavLink  to='/contract'>Contract</NavLink></li>
     
     </>
-        
+        const handleSignOut = () => {
+          logoutUser()
+          .then(() => {
+            setUsers(null);
+          })
+          .catch((err) => console.log(err))
+        }
+
     return (
         <div>
             <div className="navbar max-w-7xl mx-auto z-10 glass absolute">
@@ -42,7 +52,9 @@ const Navber = () => {
     </ul>
   </div>
   <div className="navbar-end">
-      <button className="btn bg-[#5c2a20] hover:bg-[#a65c2a] hover:text-[#331A15] text-[#f8f6f6] font-semibold text-lg"><Link to='/login'>logIn</Link></button>
+      <button className="btn bg-[#5c2a20] hover:bg-[#a65c2a] hover:text-[#331A15] text-[#f8f6f6] font-semibold text-lg">{
+        Users ? <Link to='/' onClick={handleSignOut}>logout</Link> : <Link to='/login'>logIn</Link>
+        }</button>
    
   </div>
 </div>
