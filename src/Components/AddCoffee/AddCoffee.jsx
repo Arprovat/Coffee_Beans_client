@@ -33,8 +33,10 @@ const AddCoffee = () => {
     }
     return (
         <>
+   <div className='max-w-7xl mx-auto'>
    <Navber></Navber>
-        <div className='mt-4 flex justify-center items-center'>
+   </div>
+        <div className='md:pt-24 pt-18 flex justify-center items-center'>
             <div className="card bg-[#EFECE4] w-full max-w-4xl shrink-0 shadow-2xl">
                <Link className='ml-4 mt-8 absolute  flex justify-center items-center w-12 h-12 rounded-full hover:bg-slate-200 text-xl' to='/'><IoMdArrowRoundBack/></Link>
                <h1 className='text-4xl mt-8 leading-normal  font-extrabold flex-grow text-center  text-[#331A15]'>Add Coffee</h1>

@@ -11,7 +11,7 @@ const Navber = () => {
         
     return (
         <div>
-            <div className="navbar ">
+            <div className="navbar max-w-7xl mx-auto z-10 glass absolute">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -42,7 +42,8 @@ const Navber = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn">Button</a>
+      <button className="btn bg-[#5c2a20] hover:bg-[#a65c2a] hover:text-[#331A15] text-[#f8f6f6] font-semibold text-lg"><Link to='/login'>logIn</Link></button>
+   
   </div>
 </div>
         </div>

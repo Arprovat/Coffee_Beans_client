@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import Navber from '../Navber/Navber';
 
 const UpdateCoffe = () => {
     const update = useLoaderData();
@@ -25,9 +26,11 @@ const UpdateCoffe = () => {
 
     }
     return (
-        <div className='flex justify-center items-center'>
+    <div className='max-w-7xl mx-auto'>
+        <Navber></Navber>
+        <div className='flex md:pt-24 justify-center items-center'>
              <div className="card bg-[#EFECE4] w-full max-w-4xl shrink-0 shadow-2xl">
-            <h1 className='text-3xl font-extrabold text-center'>Update Coffee {update.name}</h1>
+            <h1 className='text-3xl pt-4 font-extrabold text-center'>Update Coffee {update.name}</h1>
                 <form onSubmit={handleUpdate}  className="card-body ">
                     <div className='flex gap-4 '>
                         <div className="form-control md:w-1/2">
@@ -69,7 +72,7 @@ const UpdateCoffe = () => {
                             <label className="label">
                                 <span className="label-text">Taste</span>
                             </label>
-                            <input type="text" defaultValue={update.taste}  name='Taste' placeholder="Taste" className="input input-bordered w-full" required />
+                            <input type="text" defaultValue={update.Taste}  name='Taste' placeholder="Taste" className="input input-bordered w-full" required />
 
                         </div>
                     </div>
@@ -101,6 +104,7 @@ const UpdateCoffe = () => {
                     </div>
                 </form>
             </div>
+        </div>
         </div>
     );
 };

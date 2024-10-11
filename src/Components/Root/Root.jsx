@@ -40,11 +40,8 @@ const Root = () => {
     }
     return (
         <div className='max-w-7xl mx-auto'>
-          <div className='min-h-screen '>
-          <Navber></Navber>
           <Banner></Banner>
-          </div>
-            <div className='grid md:grid-cols-2 grid-cols-1 gap-8' >
+            <div className='grid md:grid-cols-2 grid-cols-1 gap-8 mx-4' >
                 {
                     coffees.map((coffee) => <CoffeeCard key={coffee._id} handleDelete={handleDelete} coffee={coffee}></CoffeeCard>)
                 }

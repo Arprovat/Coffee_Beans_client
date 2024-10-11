@@ -1,11 +1,12 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Root from './Components/Root/Root.jsx'
 import AddCoffee from './Components/AddCoffee/AddCoffee.jsx'
 import UpdateCoffe from './Components/UpdateCoffee/UpdateCoffe.jsx'
+import SignUp from './Components/SignUp/SignUp.jsx'
+import Login from './Components/Login/Login.JSX'
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,13 @@ const router = createBrowserRouter([
     path:'/coffees/:id',
     element:<UpdateCoffe></UpdateCoffe>,
     loader:({params})=> fetch(`http://localhost:5000/coffees/${params.id}`)
+  }
+  ,{
+    path:'/login',
+    element:<Login></Login>
+  },{
+    path:'/signup',
+    element:<SignUp/>
   }
 ])
 
